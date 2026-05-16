@@ -1,6 +1,8 @@
 # AI Agent Workspace
 
-This is the local AI agent workstation workspace.
+English | [中文](README.zh-CN.md)
+
+This is the local AI agent workstation workspace for [Codex](https://openai.com/codex/), [Hermes Agent](https://github.com/NousResearch/hermes-agent), and [OpenHuman](https://github.com/OpenHuman-ai/OpenHuman) collaboration.
 
 Repository name: `ai-agent-workstation`
 
