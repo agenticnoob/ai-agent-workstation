@@ -41,17 +41,20 @@ Repo：/Users/ai/projects/<repo-name>
 2. Intake
    明确目标、工作目录、修改边界、验证命令、输出要求。
 
-3. Handoff or direct action
+3. MCP-assisted artifact preparation
+   如果 `my-agents-mcp` 可用，使用它获取 workflow guide、artifact template，并用 `validate_artifact` v0.2 做质量门槛检查。
+
+4. Handoff or direct action
    简单安全任务可直接做；复杂实现/调试任务先写 Codex task。
 
-4. Codex implementation/testing
+5. Codex implementation/testing
    Codex 在指定 repo 内执行，并写 result。
 
-5. Hermes review
-   Hermes 检查 result、git diff、changed files、validation output、越界风险。
+6. Hermes review
+   Hermes 检查 result、git diff、changed files、validation output、越界风险，并校验 review artifact。
 
-6. Memory hygiene
-   只保留稳定、非敏感、未来会复用的 memory candidates。
+7. Memory hygiene
+   只保留稳定、非敏感、未来会复用的 memory candidates；稳定候选写入前应通过 v0.2 校验。
 ```
 
 ## Artifact flow
@@ -81,7 +84,7 @@ MEMORY_CANDIDATES.md 或 memory/<topic>-memory-candidates.md
 
 ## Codex task 必须写清楚
 
-使用 `templates/CODEX_TASK.template.md`，至少包含：
+优先使用 `my-agents-mcp` 的 `create_codex_task_skeleton` / `get_artifact_template` 生成起始骨架；如果 MCP 不可用，再使用 `templates/CODEX_TASK.template.md` 作为本地 fallback 模板。模板文件只用于复制和填充，不能原样交给 Codex 执行。填充后的真实 `CODEX_TASK.md` 至少包含：
 
 - Goal
 - Context
@@ -95,6 +98,13 @@ MEMORY_CANDIDATES.md 或 memory/<topic>-memory-candidates.md
 - Safety Notes
 
 核心原则：范围明确、边界清楚、可验证、能写 result。
+
+如果使用 `my-agents-mcp`，Codex 启动前应让 `CODEX_TASK.md` 通过 `validate_artifact` v0.2。重点避免：
+
+- 空 section 或模板 placeholder。
+- `/absolute/path/to/repo` 这类占位工作目录。
+- 不具体的 Allowed Files / Do Not Touch / Result File。
+- 没有具体命令，也没有明确写出 “Codex should discover validation commands” 的 Validation。
 
 ## Hermes review 必须检查
 
@@ -116,6 +126,8 @@ NEEDS_CHANGES
 BLOCKED
 ```
 
+如果使用 `my-agents-mcp`，`AGENT_REVIEW.md` 应通过 `validate_artifact` v0.2：Verdict 必须实际选择且只选择一个，`Validation Checked` 必须说明实际检查过什么，或说明为什么无法运行验证。
+
 ## Memory hygiene
 
 可以进入 memory candidates：
@@ -132,6 +144,8 @@ BLOCKED
 - 一次性错误输出。
 - API key、token、cookie、SSH key、`.env` 内容。
 - 很快会过期的结果。
+
+如果使用 `my-agents-mcp`，`MEMORY_CANDIDATES.md` 应通过 `validate_artifact` v0.2。稳定候选不能包含 secrets、credentials、token values、commit hashes、issue/PR 状态、build IDs 或一次性进度；Rejected Items 可以把这些类别作为“排除项”列出。
 
 ## 常用启动模板
 

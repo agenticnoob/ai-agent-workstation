@@ -51,6 +51,15 @@ workflows/codex-hermes/QUICKSTART.zh-CN.md
 AGENT_CONTEXT.md → CODEX_TASK.md → AGENT_RESULT.md → AGENT_REVIEW.md → MEMORY_CANDIDATES.md
 ```
 
+When `my-agents-mcp` is available, use it as the workflow helper layer for artifact templates and `validate_artifact` v0.2 quality-gate validation. It does not replace the Markdown workflow docs or SOUL.md, and it must not become hidden automation.
+
+Typical MCP-assisted gates:
+
+- Validate `CODEX_TASK.md` before Codex starts.
+- Validate `AGENT_RESULT.md` before Hermes review.
+- Validate `AGENT_REVIEW.md` before final response.
+- Validate `MEMORY_CANDIDATES.md` before memory promotion.
+
 ## Safety defaults
 
 - Keep workflow artifacts under `/Users/ai/agent-workspace`.

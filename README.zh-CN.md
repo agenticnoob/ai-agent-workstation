@@ -69,6 +69,15 @@ AGENT_REVIEW.md 或 reviews/<task-name>.md
 MEMORY_CANDIDATES.md 或 memory/<topic>-memory-candidates.md
 ```
 
+如果 `my-agents-mcp` 可用，它是这个流程的工具层：提供 artifact templates、skeletons、`validate_artifact` v0.2 质量门槛校验和 memory candidate guidance。它不替代 Markdown workflow docs 或 SOUL.md，也不应变成隐藏自动执行系统。
+
+典型 MCP-assisted gates：
+
+- Codex 启动前校验 `CODEX_TASK.md`。
+- Hermes review 前校验 `AGENT_RESULT.md`。
+- 最终回复前校验 `AGENT_REVIEW.md`。
+- 记忆提升前校验 `MEMORY_CANDIDATES.md`。
+
 ## 使用方式
 
 开始一个非平凡任务时，可以这样说：
