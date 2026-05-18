@@ -33,6 +33,12 @@ workflows/codex-hermes/
 
 Use it for Hermes planning/review plus Codex implementation/testing.
 
+Quickstart:
+
+```text
+workflows/codex-hermes/QUICKSTART.zh-CN.md
+```
+
 ## Default agent roles
 
 - Hermes: planning, coordination, review, context hygiene, and memory hygiene.

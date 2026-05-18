@@ -95,3 +95,4 @@ MEMORY_CANDIDATES.md 或 memory/<topic>-memory-candidates.md
 
 - GitHub 仓库：[agenticnoob/ai-agent-workstation](https://github.com/agenticnoob/ai-agent-workstation)
 - 主工作流：[codex-hermes](workflows/codex-hermes/README.md)
+- 快速开始：[Codex + Hermes 工作流快速开始](workflows/codex-hermes/QUICKSTART.zh-CN.md)
