@@ -12,16 +12,16 @@ User:
 
 ## Agent Roles
 
-- Hermes: planning, task management, review, long-term project coordination
-- Codex: code reading, code editing, tests, builds, repo-level execution
-- OpenHuman: future long-term memory and personal/project context layer
+- Hermes: planning, task management, review, long-term project coordination, and memory hygiene
+- Codex: code reading, code editing, tests, builds, repo-level execution, and result reporting
 
 ## Safety Boundaries
 
 Agents must:
 
 - Work only under /Users/ai unless explicitly instructed otherwise
-- Prefer /Users/ai/agent-workspace for tasks
+- Prefer /Users/ai/agent-workspace for workflow artifacts
+- Prefer /Users/ai/projects for project repositories
 - Avoid accessing the main user's home directory
 - Avoid using sudo
 - Avoid changing system-level files
@@ -41,3 +41,4 @@ Agents must:
 - CODEX_TASK.md: task given to Codex
 - AGENT_RESULT.md: result produced by Codex
 - AGENT_REVIEW.md: review and next-step analysis by Hermes or human
+- MEMORY_CANDIDATES.md: durable non-sensitive facts to consider for Hermes persistent memory
