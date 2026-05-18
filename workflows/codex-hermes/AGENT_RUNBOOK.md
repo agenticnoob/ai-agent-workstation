@@ -31,8 +31,9 @@ Use this file plus the templates in `templates/` when executing the workflow.
    - If `my-agents-mcp` is available, prefer its skeleton/template helpers (`create_codex_task_skeleton` or `get_artifact_template`) and `validate_artifact` v0.2 instead of relying only on hand-written structure.
    - Keep `templates/*.template.md` as human-readable fallback templates and audit references. They contain placeholders and should not be handed to Codex as-is.
    - Context: fill `AGENT_CONTEXT.md` from `templates/AGENT_CONTEXT.template.md` or the MCP template output.
-   - Codex handoff: fill `CODEX_TASK.md` or `tasks/<task-name>.md` from `create_codex_task_skeleton`, `get_artifact_template`, or `templates/CODEX_TASK.template.md`.
-   - Codex result: expect `AGENT_RESULT.md` or `results/<task-name>.md`.
+   - Handoff: fill `CODEX_TASK.md` or `tasks/<task-name>.md`, then validate it before Codex starts.
+   - Result/review/memory: validate `AGENT_RESULT.md`, `AGENT_REVIEW.md`, and `MEMORY_CANDIDATES.md` at their respective gates when the MCP tool is available.
+   - Governance sync: if SOUL.md, this workspace workflow, or `/Users/ai/projects/my-agents-mcp` changes, check the other two for needed updates before finishing.
    - Hermes review: write `AGENT_REVIEW.md` or `reviews/<task-name>.md`.
    - Memory candidates: write `MEMORY_CANDIDATES.md` or `memory/<topic>.md`.
 

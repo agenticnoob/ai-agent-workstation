@@ -30,6 +30,8 @@ The local `my-agents-mcp` project provides the optional tool layer for the `code
 
 When `my-agents-mcp` is available, the `codex-hermes` workflow prefers MCP-generated skeletons/templates for new artifacts; files under `/Users/ai/agent-workspace/workflows/codex-hermes/templates/` remain human-readable fallback templates and audit references, not executable handoffs as-is.
 
+SOUL.md, `/Users/ai/agent-workspace` workflow documentation, and `/Users/ai/projects/my-agents-mcp` form a strongly linked governance set; modifying any one of them requires checking whether the other two need corresponding updates.
+
 Stable facts may be promoted to Hermes persistent memory only when they are non-sensitive, declarative, useful across sessions, and unlikely to become stale within a week.
 
 ## Rejected Items

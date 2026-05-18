@@ -71,6 +71,8 @@ MEMORY_CANDIDATES.md 或 memory/<topic>-memory-candidates.md
 
 如果 `my-agents-mcp` 可用，它是这个流程的工具层：提供 artifact templates、skeletons、`validate_artifact` v0.2 质量门槛校验和 memory candidate guidance。它不替代 Markdown workflow docs 或 SOUL.md，也不应变成隐藏自动执行系统。
 
+治理同步规则：SOUL.md、这个 workspace 的 workflow 文档、以及 `/Users/ai/projects/my-agents-mcp` 是强关联三件套。修改其中任一项时，都要检查另外两项是否需要同步更新，并在 review 或最终回复中说明判断结果。
+
 典型 MCP-assisted gates：
 
 - Codex 启动前校验 `CODEX_TASK.md`。

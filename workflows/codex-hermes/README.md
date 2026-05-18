@@ -44,6 +44,8 @@ The local `my-agents-mcp` server is the optional tool layer for this workflow. I
 
 The MCP server does not replace this Markdown workflow, SOUL.md, or human approval. It must not auto-run Codex, auto-write persistent memory, auto-commit git changes, or modify Hermes configuration.
 
+Governance sync rule: SOUL.md, `/Users/ai/agent-workspace` workflow docs, and `/Users/ai/projects/my-agents-mcp` are a strongly linked set. When any one changes, check whether the other two need corresponding updates and record that decision in the review or final response.
+
 Use `validate_artifact` before key gates:
 
 - Gate 0: validate `CODEX_TASK.md` before Codex starts.

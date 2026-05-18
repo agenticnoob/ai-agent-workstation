@@ -53,6 +53,8 @@ AGENT_CONTEXT.md → CODEX_TASK.md → AGENT_RESULT.md → AGENT_REVIEW.md → M
 
 When `my-agents-mcp` is available, use it as the workflow helper layer for artifact templates and `validate_artifact` v0.2 quality-gate validation. It does not replace the Markdown workflow docs or SOUL.md, and it must not become hidden automation.
 
+Governance sync rule: SOUL.md, this workspace documentation, and `/Users/ai/projects/my-agents-mcp` are a strongly linked set. When changing any one of them, check whether the other two need corresponding updates and record the decision in the review or final response.
+
 Typical MCP-assisted gates:
 
 - Validate `CODEX_TASK.md` before Codex starts.
