@@ -67,6 +67,16 @@ When `my-agents-mcp` is available, prefer MCP-generated skeletons/templates (`cr
 | `AGENT_REVIEW.md` or `reviews/*.md` | Hermes reviews result/diff/validation | `templates/AGENT_REVIEW.template.md` |
 | `MEMORY_CANDIDATES.md` or `memory/*.md` | stable facts may be worth durable memory | `templates/MEMORY_CANDIDATES.template.md` |
 
+## Codex invocation note
+
+For Codex CLI handoffs, prefer the current sandbox flag:
+
+```bash
+codex exec --sandbox workspace-write 'Read CODEX_TASK.md and complete it exactly. Keep terminal output concise; write durable details to AGENT_RESULT.md.'
+```
+
+Avoid the deprecated `--full-auto` flag in new handoffs.
+
 ## Documentation policy
 
 Keep this workflow intentionally small:

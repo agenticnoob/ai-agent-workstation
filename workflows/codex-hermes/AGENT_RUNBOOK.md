@@ -26,6 +26,7 @@ Use this file plus the templates in `templates/` when executing the workflow.
 3. Choose execution path.
    - Simple safe documentation or inspection task: Hermes may act directly.
    - Repo implementation, debugging, broad inspection, or test/build loop: write a Codex task first.
+   - When invoking Codex CLI for a handoff, prefer `codex exec --sandbox workspace-write '<prompt>'` over deprecated `--full-auto`, run it from the task working directory, and ask Codex to keep terminal output concise while writing the durable details to `AGENT_RESULT.md`.
 
 4. Use artifacts and MCP helpers when available.
    - If `my-agents-mcp` is available, prefer its skeleton/template helpers (`create_codex_task_skeleton` or `get_artifact_template`) and `validate_artifact` v0.2 instead of relying only on hand-written structure.
